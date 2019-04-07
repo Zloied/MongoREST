@@ -7,6 +7,12 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * 
+ * @author Eduard This is the User entity class which represents a single user
+ *         record from MongoDB. User has such fields as name, email , adress and
+ *         "deleted" which shows is user was deleted or not
+ */
 @Document(collection = "User")
 public class User implements Serializable {
 

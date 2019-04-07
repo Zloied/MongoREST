@@ -25,9 +25,9 @@ public class UserController {
 
 	@PostMapping(value = "/user/add")
 	public void addUser(@RequestBody User theUser) {
-		if (userRepository.findByEmail(theUser.getEmail()) == null) {
+		//if (userRepository.findByEmail(theUser.getEmail()) == null) {
 			userRepository.insert(theUser);
-		}
+		//}
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -44,7 +44,7 @@ public class UserController {
 	@ResponseBody
 	public Response getUserByEmail(@PathVariable String email) {
 		User user = userRepository.findByEmail(email);
-		if (user != null && !user.isDeleted()) {
+		if (user != null ) {
 			return Response.status(Response.Status.OK).entity(user).build();
 		} else {
 			return Response.status(Response.Status.NOT_FOUND).build();
